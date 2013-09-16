@@ -8,11 +8,8 @@ then
 	make distclean
     fi
 
-    echo "rm -rf *~ *.scan aclocal.m4 *.cache *.log config.h *.in configure"
-          rm -rf *~ *.scan aclocal.m4 *.cache *.log config.h *.in configure
+    echo "rm -rf *~ *.scan aclocal.m4 *.cache *.log config.h *.in configure ltmain.sh config.*"
+          rm -rf *~ *.scan aclocal.m4 *.cache *.log config.h *.in configure ltmain.sh config.*
 else
-    aclocal
-    autoconf
-    autoheader
-    automake
+    autoreconf -fi
 fi
