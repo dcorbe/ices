@@ -1,0 +1,12 @@
+Makefile.in
+Makefile
+configure
+aclocal.m4
+config.h.in
+*.cache
+*.log
+*.core
+*.scan
+*.o
+deliver
+*~
