@@ -245,7 +245,10 @@ python_eval (char *functionname)
   ices_log_debug ("Interpreting [%s]", functionname);
 	
   /* Call the python function */
-  ret = PyObject_CallMethod (python_module, functionname, NULL);
+  if (ices_config.pmargs)
+	  ret = PyObject_CallMethod (python_module, functionname, "(s)", ices_config.pmargs);
+  else
+	  ret = PyObject_CallMethod(python_module, functionname, NULL);
   if (! ret)
     PyErr_Print ();
 

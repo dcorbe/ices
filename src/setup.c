@@ -180,6 +180,8 @@ ices_setup_parse_defaults (ices_config_t *ices_config)
 
   ices_config->streams = (ices_stream_t*) malloc (sizeof (ices_stream_t));
 
+  ices_config->pmargs = NULL;
+  
   ices_setup_parse_stream_defaults (ices_config->streams);
 }
 
@@ -340,6 +342,10 @@ ices_setup_parse_command_line (ices_config_t *ices_config, char **argv,
       }
 
       switch (s[1]) {
+        case 'a':
+          arg++;
+          ices_config->pmargs = ices_util_strdup(argv[arg]);
+          break;
         case 'B':
 	  ices_config->daemon = 1;
 	  break;
@@ -545,6 +551,7 @@ ices_setup_usage (void)
   printf ("This is ices " VERSION "\n"
 	  "ices <options>\n"
 	  "Options:\n"
+	  "\t-a <Interpreter Module Arguments>\n"
 	  "\t-B (Background (daemon mode))\n"
 	  "\t-b <stream bitrate>\n"
 	  "\t-C <crossfade seconds>\n");

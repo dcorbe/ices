@@ -116,15 +116,16 @@ typedef struct _ices_plugin {
 } ices_plugin_t;
 
 typedef struct {
-  int daemon;
-  int verbose;
-  int reencode;
-  char *configfile;
-  char *base_directory;
-  FILE *logfile;
-
-  ices_stream_t* streams;
-  playlist_module_t pm;
-  ices_plugin_t *plugins;
+	int daemon;
+	int verbose;
+	int reencode;
+	char *configfile;
+	char *base_directory;
+	FILE *logfile;
+	
+	ices_stream_t* streams;
+	playlist_module_t pm;
+	char *pmargs;
+	ices_plugin_t *plugins;
 } ices_config_t;
 #endif
